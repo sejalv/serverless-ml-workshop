@@ -5,14 +5,19 @@ on:
     branches: [ dev ]
     
 jobs:
-  sam-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install aws-sam-cli
       - uses: actions/checkout@v2
-      - name: sam-deploy
+      - name: sam
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: eu-central-1
         run: |
+          sam build
           sam deploy
