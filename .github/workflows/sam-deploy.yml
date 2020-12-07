@@ -1,8 +1,10 @@
+name: Publish SAM to AWS
+
 on:
   push:
     branches:
       - dev
-name: Publish SAM to AWS
+
 jobs:
   deploy:
     name:  Package
