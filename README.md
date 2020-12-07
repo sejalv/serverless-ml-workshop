@@ -15,7 +15,7 @@ This workshop focusses on deployment of ML models as Serverless APIs (AWS Lambda
 - GitHub Actions: CI/CD
 
 ## Project Structure
-
+```
 |-- service
      |-- app.py: source code lambda handler
      |-- train.py: to train the model
@@ -26,7 +26,7 @@ This workshop focusses on deployment of ML models as Serverless APIs (AWS Lambda
           |--test_handler.py: unit test/s for lambda handler
 |-- tests
 |-- template.yaml: A template that defines the application's AWS resources.
-
+```
 
 ## Pre-requisites
 
