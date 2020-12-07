@@ -15,5 +15,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: eu-central-1
         run: |
-          sam build --template-file=template.yaml
-          sam deploy --template-file template.yaml --capabilities CAPABILITY_IAM
+          sam build --use-container
+          sam deploy
