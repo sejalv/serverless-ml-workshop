@@ -15,7 +15,7 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       PackageType: Image
-      # ImageUri: 608154922633.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda
+      ImageUri: 608154922633.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda
       # ImageConfig:
         # Uncomment this to override command here from the Dockerfile
         # Command: ["app.lambda_handler"]

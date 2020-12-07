@@ -24,6 +24,11 @@ To use the SAM CLI, you need the following tools.
 You may need the following for local testing.
 * [Python 3 installed](https://www.python.org/downloads/)
 
+### Create Infrastructure
+```bash
+$ aws ecr create-repository --repository-name docker-lambda [--image-scanning-configuration scanOnPush=true]
+```
+
 ### Build
 
 1. Using Docker
@@ -55,7 +60,9 @@ $ curl -XPOST http://127.0.0.1:3000/classify -H 'Content-Type: application/json'
 
 1. Using Docker
 ```bash
-$ docker push xxxxxx.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda:latest
+$ aws ecr get-login-password | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.eu-central-1.amazonaws.com
+
+$ docker push xxxxxxxxxxxx.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda:latest
 ```
 
 2. Using SAM

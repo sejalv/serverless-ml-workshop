@@ -4,7 +4,7 @@ version = 0.1
 [default.deploy.parameters]
 stack_name = "serverless-ml-workshop"
 s3_prefix = "serverless-ml-workshop"
-image_repository = "608154922633.dkr.ecr.eu-central-1.amazonaws.com"
+image_repository = "608154922633.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda"
 region = "eu-central-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
