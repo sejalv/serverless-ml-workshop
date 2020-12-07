@@ -32,17 +32,17 @@ This workshop focusses on deployment of ML models as Serverless APIs (AWS Lambda
 
 * **python3.8** (used by this service) or python3 [Installed Python 3](https://www.python.org/downloads/)
 * **Docker** - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
-* AWS account with IAM user & [required permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
 * **awscli** - [Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 * **aws-sam-cli** - [Install SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 
+### Setup
+* AWS account with IAM user & [required permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
+* ECR Repository
+(Here's how you create one:)
+```$ aws ecr create-repository --repository-name <repo-name> [--image-scanning-configuration scanOnPush=true]```
 
-## Create Infrastructure
-```bash
-$ aws ecr create-repository --repository-name docker-lambda [--image-scanning-configuration scanOnPush=true]
-```
-
-## Build
+## Steps
+### Build
 
 1. Using Docker
 ```bash
@@ -55,7 +55,7 @@ $ sam build
 The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `hello_world/requirements.txt` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
 
 
-## Testing locally
+### Testing locally
 
 1. Using Docker
 ```bash
@@ -70,7 +70,7 @@ $ sam local start-api
 $ curl -XPOST http://127.0.0.1:3000/classify -H 'Content-Type: application/json' -d '{"data":".10"}'
 ```
 
-### Unit tests
+#### Unit tests
 
 Tests are defined in the `tests` folder in this project. Use PIP to install the [pytest](https://docs.pytest.org/en/latest/) and run unit tests from your local machine.
 
@@ -79,7 +79,7 @@ $ pip install pytest pytest-mock --user
 $ python -m pytest tests/ -v
 ```
 
-## Deployment
+### Deployment
 
 1. Using Docker
 ```bash
@@ -94,7 +94,7 @@ sam deploy --guided
 ```
 
 
-## Cleanup
+### Cleanup
 
 To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
 
