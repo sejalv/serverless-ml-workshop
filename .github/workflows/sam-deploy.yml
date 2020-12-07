@@ -10,7 +10,7 @@ jobs:
     name:  Package
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@dev
+    - uses: actions/checkout@v2
     - name: Package
       uses: sejalv/serverless-ml-workshop@dev
       env:
