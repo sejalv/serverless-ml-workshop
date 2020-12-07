@@ -1,6 +1,6 @@
 # Serverless ML Workshop
 
-This workshop focusses on deployment of ML models as Serverless APIs (AWS Lambda).
+This workshop focusses on deployment of ML models with Serverless APIs (AWS Lambda) and Docker.
 
 - Training a model inside a container
 - Packaging the service with an image
