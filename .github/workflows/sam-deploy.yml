@@ -2,30 +2,18 @@ name: Publish SAM to AWS
 
 on:
   push:
-    branches:
-      - dev
-
+    branches: [ dev ]
+    
 jobs:
-  deploy:
-    name:  Package
+  sam-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Package
-      uses: sejalv/serverless-ml-workshop@dev
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: eu-central-1
-        # S3_BUCKET: ${{ secrets.S3_BUCKET }}
-      with:
-        args: package --template-file template.yaml --output-template-file packaged.yaml
-    - name: Deploy
-      uses: sejalv/serverless-ml-workshop@dev
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: eu-central-1
-        # STACK_NAME: ${{ secrets.STACK_NAME }}
-      with:
-        args: deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM
+      - uses: actions/checkout@v2
+      - name: sam-deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-central-1
+        run: |
+          sam build
+          sam deploy
