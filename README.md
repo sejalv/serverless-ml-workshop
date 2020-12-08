@@ -108,7 +108,7 @@ aws cloudformation delete-stack --stack-name <stack-name>
 
 * [Deploying a DL Model on AWS](https://github.com/alexeygrigorev/aws-lambda-docker) by [Alexey Grigorev](https://datatalks.club/people/alexeygrigorev.html)
 * [Deploying models with Sagemaker](https://github.com/ds-muzalevskiy/sagemaker-docker-deploy) by [Dmitry Muzalevskiy](https://datatalks.club/people/dmitrymuzalevskiy.html)
-* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) series by Luigi Patruno (MLinProduction)
+* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) series by Luigi Patruno ([MLinProduction](https://mlinproduction.com/))
 * [Multi-stage Docker build](https://winderresearch.com/a-simple-docker-based-workflow-for-deploying-a-machine-learning-model/)
 
 ### Recent Updates on AWS
