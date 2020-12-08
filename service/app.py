@@ -2,7 +2,7 @@ import json
 import pickle
 import os
 
-model_local_path = os.environ['MODEL_LOCAL_PATH']
+model_local_path = os.environ.get('MODEL_LOCAL_PATH', "pickled_model.pkl")
 
 
 def lambda_handler(event, context):
