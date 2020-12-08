@@ -6,7 +6,7 @@ from service import app
 
 
 @pytest.fixture
-def mock_env_user(monkeypatch):
+def model_local_path(monkeypatch):
     monkeypatch.setenv("MODEL_LOCAL_PATH", "pickled_model.pkl")
 
 
