@@ -82,4 +82,4 @@ def test_lambda_handler(apigw_event, mocker, model_local_path):
 
     assert ret["statusCode"] == 200
     assert "message" in ret["body"]
-    assert data["message"] == "hello world"
+    assert data["message"] == {"prediction": "1"}
