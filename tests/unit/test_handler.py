@@ -6,8 +6,8 @@ from service import app
 
 
 @pytest.fixture
-def model_local_path(monkeypatch):
-    monkeypatch.setenv("MODEL_LOCAL_PATH", "pickled_model.pkl")
+def model_local_path():
+    os.environ["MODEL_LOCAL_PATH"] = "pickled_model.pkl"
 
 
 @pytest.fixture()
