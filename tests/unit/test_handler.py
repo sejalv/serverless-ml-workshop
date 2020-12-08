@@ -5,11 +5,9 @@ import pytest
 from service import app
 
 
-@pytest.fixture()
-def model_local_path():
-    model_local_path = os.environ.get(
-        "MODEL_LOCAL_PATH", "pickled_model.p"
-    )
+@pytest.fixture
+def mock_env_user(monkeypatch):
+    monkeypatch.setenv("MODEL_LOCAL_PATH", "pickled_model.pkl")
 
 
 @pytest.fixture()

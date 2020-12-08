@@ -28,12 +28,12 @@ def x_n_y_from_df(df, y_column, x_columns=[]):
     return X, y
 
 
-X_train, y_train = x_n_y_from_df(train_df, 'target', ['alcohol'])
-X_test, y_test = x_n_y_from_df(test_df, 'target', ['alcohol'])
-X_train = np.array(X_train['alcohol']).reshape(-1, 1)
-X_test = np.array(X_test['alcohol']).reshape(-1, 1)
+x_train, y_train = x_n_y_from_df(train_df, 'target', ['alcohol'])
+x_test, y_test = x_n_y_from_df(test_df, 'target', ['alcohol'])
+x_train = np.array(x_train['alcohol']).reshape(-1, 1)
+x_test = np.array(x_test['alcohol']).reshape(-1, 1)
 
 model = LogisticRegression()
-model.fit(X_train, y_train)
+model.fit(x_train, y_train)
 
 pickle.dump(model, open(MODEL_LOCAL_PATH, "wb"))
