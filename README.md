@@ -104,7 +104,18 @@ aws cloudformation delete-stack --stack-name <stack-name>
 
 ## Resources
 
-* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) by Luigi Patruno (MLinProduction)
-* [Deploying a DL Model on AWS](https://github.com/alexeygrigorev/aws-lambda-docker) by Alexey Grigorev
-* [Deploying models with Sagemaker](https://github.com/ds-muzalevskiy/sagemaker-docker-deploy) by Dmitry Muzalevskiy
+### Model Deployment
+
+* [Deploying a DL Model on AWS](https://github.com/alexeygrigorev/aws-lambda-docker) by [Alexey Grigorev](https://datatalks.club/people/alexeygrigorev.html)
+* [Deploying models with Sagemaker](https://github.com/ds-muzalevskiy/sagemaker-docker-deploy) by [Dmitry Muzalevskiy](https://datatalks.club/people/dmitrymuzalevskiy.html)
+* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) series by Luigi Patruno (MLinProduction)
 * [Multi-stage Docker build](https://winderresearch.com/a-simple-docker-based-workflow-for-deploying-a-machine-learning-model/)
+
+### Recent Updates on AWS
+* [AWS Lambda – Container Image tutorial](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
+* [Update on AWS lambda - supports 10gb memory 6vcpu cores](https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-supports-10gb-memory-6-vcpu-cores-lambda-functions/)
+
+### Comparison (AWS Lambda vs. ...)
+* [Post-update evaluation and tradeoffs](https://dev.to/eoinsha/container-image-support-in-aws-lambda-deep-dive-2keh)
+* [Pre-update comparison with Sagemaker](https://towardsdatascience.com/saving-95-on-infrastructure-costs-using-aws-lambda-for-scikit-learn-predictions-3ff260a6cd9d)
+* [Alternative workflow - Model deployment](https://medium.com/swlh/how-to-deploy-your-scikit-learn-model-to-aws-44aabb0efcb4)
