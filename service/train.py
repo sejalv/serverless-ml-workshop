@@ -9,31 +9,31 @@ MODEL_LOCAL_PATH = os.environ["MODEL_LOCAL_PATH"]
 
 data = load_wine()  # import dataset
 df = pd.DataFrame(data['data'], columns=data['feature_names'])  # build dataframe
-df['target'] = data['target']   # add dependent variable
+df['target'] = data['target']  # add dependent variable
 df = df.sample(frac=1)  # randomize the data
 df.head(3)
 
-print("row count:",len(df))
+print("row count:", len(df))
 train_df = df[:150]
 test_df = df[150:]
-#=> row count: 178
+# => row count: 178
 
 
-def X_and_y_from_df(df, y_column, X_columns = []):
+def x_n_y_from_df(df, y_column, x_columns=[]):
     '''Extract data from the dataframe'''
     X = {}
-    for feature in X_columns:
+    for feature in x_columns:
         X[feature] = df[feature].tolist()
     y = df[y_column].tolist()
     return X, y
 
 
-X_train, y_train = X_and_y_from_df(train_df, 'target', ['alcohol'])
-X_test, y_test = X_and_y_from_df(test_df, 'target', ['alcohol'])
-X_train = np.array(X_train['alcohol']).reshape(-1,1)
-X_test = np.array(X_test['alcohol']).reshape(-1,1)
+X_train, y_train = x_n_y_from_df(train_df, 'target', ['alcohol'])
+X_test, y_test = x_n_y_from_df(test_df, 'target', ['alcohol'])
+X_train = np.array(X_train['alcohol']).reshape(-1, 1)
+X_test = np.array(X_test['alcohol']).reshape(-1, 1)
 
 model = LogisticRegression()
 model.fit(X_train, y_train)
 
-pickle.dump( model, open(MODEL_LOCAL_PATH, "wb"))
+pickle.dump(model, open(MODEL_LOCAL_PATH, "wb"))

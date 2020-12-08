@@ -1,8 +1,20 @@
 import json
-
+import os
 import pytest
 
 from service import app
+
+
+@pytest.fixture()
+def model_local_path():
+    model_local_path = os.environ.get(
+        "MODEL_LOCAL_PATH", "pickled_model.p"
+    )
+
+
+@pytest.fixture()
+def mocker():
+    return {}
 
 
 @pytest.fixture()
@@ -62,7 +74,7 @@ def apigw_event():
     }
 
 
-def test_lambda_handler(apigw_event, mocker):
+def test_lambda_handler(apigw_event, mocker, model_local_path):
 
     ret = app.lambda_handler(apigw_event, "")
     data = json.loads(ret["body"])
