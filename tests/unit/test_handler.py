@@ -5,7 +5,7 @@ import pytest
 from service import app
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def model_local_path():
     os.environ["MODEL_LOCAL_PATH"] = "pickled_model.pkl"
 
