@@ -25,4 +25,4 @@ jobs:
           AWS_DEFAULT_REGION: eu-central-1
         run: |
           sam build
-          sam deploy
+          sam deploy | y
