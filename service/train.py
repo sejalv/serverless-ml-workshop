@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 import os
 
-MODEL_LOCAL_PATH = os.environ["MODEL_LOCAL_PATH"]
+model_local_path = os.environ.get('MODEL_LOCAL_PATH', "pickled_model.pkl")
 
 data = load_wine()  # import dataset
 df = pd.DataFrame(data['data'], columns=data['feature_names'])  # build dataframe
@@ -36,4 +36,4 @@ x_test = np.array(x_test['alcohol']).reshape(-1, 1)
 model = LogisticRegression()
 model.fit(x_train, y_train)
 
-pickle.dump(model, open(MODEL_LOCAL_PATH, "wb"))
+pickle.dump(model, open(model_local_path, "wb"))
