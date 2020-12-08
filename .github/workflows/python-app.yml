@@ -35,5 +35,7 @@ jobs:
       env:
         MODEL_LOCAL_PATH: pickled_model.pkl
       run: |
-        coverage run -m pytest
+        pip install pytest-cov
+        pytest --cov=./ --cov-report=xml
+
         pytest
