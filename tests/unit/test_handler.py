@@ -1,9 +1,10 @@
 import json
 import os
 import pytest
+import importlib
 
 from service import app
-
+from service import train
 
 @pytest.fixture(scope="package")
 def model_local_path():
@@ -74,6 +75,7 @@ def apigw_event():
 
 def test_lambda_handler(apigw_event, mocker, model_local_path):
 
+    importlib.reload(train)
     ret = app.lambda_handler(apigw_event, "")
     data = json.loads(ret["body"])
 

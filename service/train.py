@@ -35,5 +35,5 @@ x_test = np.array(x_test['alcohol']).reshape(-1, 1)
 
 model = LogisticRegression()
 model.fit(x_train, y_train)
-
 pickle.dump(model, open(model_local_path, "wb"))
+print(os.path.dirname(os.path.realpath(model_local_path)))
