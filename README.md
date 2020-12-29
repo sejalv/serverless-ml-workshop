@@ -1,12 +1,11 @@
 # Serverless ML Workshop
 
-This workshop focusses on deployment of ML models with Serverless APIs (AWS Lambda) and Docker.
+This workshop focusses on deployment of ML models with Serverless APIs (AWS Lambda) and Docker. We'll learn how to:
 
-- Training a model inside a container
-- Packaging the service with an image
+- Train and serialize a model inside a container
+- Package the service in an image
 - Serving the model with serverless API
-- Testing locally
-- CI/CD workflow
+- Local Testing & CI/CD workflow
 
 ## Technologies
 - Docker + ECR: Container & Registy
@@ -24,7 +23,7 @@ This workshop focusses on deployment of ML models with Serverless APIs (AWS Lamb
 |-- tests
      |-- unit
           |--test_handler.py: unit test/s for lambda handler
-|-- tests
+|-- samconfig.toml: configured by SAM
 |-- template.yaml: A template that defines the application's AWS resources.
 ```
 
@@ -37,9 +36,10 @@ This workshop focusses on deployment of ML models with Serverless APIs (AWS Lamb
 
 ### Setup
 * AWS account with IAM user & [required permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
-* ECR Repository
-(Here's how you create one:)
-```$ aws ecr create-repository --repository-name <repo-name> [--image-scanning-configuration scanOnPush=true]```
+* ECR Repository (Here's how you create one:)
+```
+$ aws ecr create-repository --repository-name <repo-name> [--image-scanning-configuration scanOnPush=true]
+```
 
 ## Steps
 ### Build
