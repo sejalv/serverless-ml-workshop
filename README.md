@@ -52,7 +52,7 @@ $ docker build -t docker-lambda ./service
 ```bash
 $ sam build
 ```
-The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `hello_world/requirements.txt` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
+The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `service/requirements.txt` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
 
 
 ### Testing locally
