@@ -46,20 +46,20 @@ $ aws ecr create-repository --repository-name <repo-name> [--image-scanning-conf
 
 1. Using Docker
 ```bash
-$ docker build -t docker-lambda ./service
+$ docker build -t serverless-ml ./service
 ```
 2. Using SAM
 ```bash
 $ sam build
 ```
-The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `service/requirements.txt` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
+The processed template file is saved in the `.aws-sam/build` folder.
 
 
 ### Testing locally
 
 1. Using Docker
 ```bash
-$ docker run -p 8080:8080 docker-lambda
+$ docker run -p 8080:8080 serverless-ml
 
 $ curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"body": {"data": ".10"}}'
 ```
@@ -83,9 +83,9 @@ $ python -m pytest tests/ -v
 
 1. Using Docker
 ```bash
-$ aws ecr get-login-password | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.eu-central-1.amazonaws.com
+$ aws ecr get-login-password | docker login --username AWS --password-stdin ${AWS_ACCOUNT}.dkr.ecr.eu-central-1.amazonaws.com
 
-$ docker push xxxxxxxxxxxx.dkr.ecr.eu-central-1.amazonaws.com/docker-lambda:latest
+$ docker push ${AWS_ACCOUNT}.dkr.ecr.eu-central-1.amazonaws.com/serverless-ml:latest
 ```
 
 2. Using SAM
@@ -104,18 +104,10 @@ aws cloudformation delete-stack --stack-name <stack-name>
 
 ## Resources
 
-### Model Deployment
-
-* [Deploying a DL Model on AWS](https://github.com/alexeygrigorev/aws-lambda-docker) by [Alexey Grigorev](https://datatalks.club/people/alexeygrigorev.html)
-* [Deploying models with Sagemaker](https://github.com/ds-muzalevskiy/sagemaker-docker-deploy) by [Dmitry Muzalevskiy](https://datatalks.club/people/dmitrymuzalevskiy.html)
-* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) series by Luigi Patruno ([MLinProduction](https://mlinproduction.com/))
-* [Multi-stage Docker build](https://winderresearch.com/a-simple-docker-based-workflow-for-deploying-a-machine-learning-model/)
-
-### Recent Updates on AWS
+**Workshops built on new AWS features**:
 * [AWS Lambda – Container Image tutorial](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
-* [Update on AWS lambda - supports 10gb memory 6vcpu cores](https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-supports-10gb-memory-6-vcpu-cores-lambda-functions/)
+* [Deploying a DL Model on AWS](https://github.com/alexeygrigorev/aws-lambda-docker) by [Alexey Grigorev](https://datatalks.club/people/alexeygrigorev.html)
 
-### Comparison (AWS Lambda vs. ...)
-* [Post-update evaluation and tradeoffs](https://dev.to/eoinsha/container-image-support-in-aws-lambda-deep-dive-2keh)
-* [Pre-update comparison with Sagemaker](https://towardsdatascience.com/saving-95-on-infrastructure-costs-using-aws-lambda-for-scikit-learn-predictions-3ff260a6cd9d)
-* [Alternative workflow - Model deployment](https://medium.com/swlh/how-to-deploy-your-scikit-learn-model-to-aws-44aabb0efcb4)
+**The Docker-based workflow (multi-stage build) is based on**:
+* [Docker for Machine Learning](https://mlinproduction.com/docker-for-ml-part-1/) series by Luigi Patruno ([MLinProduction](https://mlinproduction.com/))
+* [A Simple Docker-based Workflow For Deploying A Machine Learning Model](https://winderresearch.com/a-simple-docker-based-workflow-for-deploying-a-machine-learning-model/)
