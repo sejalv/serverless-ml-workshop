@@ -5,7 +5,7 @@ This workshop focusses on deployment of ML models with Serverless APIs (AWS Lamb
 - Train and serialize a model inside a container
 - Package the service in an image
 - Serving the model with serverless API
-- Local Testing & CI/CD workflow
+- Build, Test, and Deploy, with CI/CD workflow
 
 ## Technologies
 - Docker + ECR: Container & Registy
