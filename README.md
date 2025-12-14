@@ -7,6 +7,9 @@ This workshop focusses on deployment of ML models with Serverless APIs (AWS Lamb
 - Serve the model with serverless API
 - Build, Test, and Deploy, with CI/CD workflow
 
+Follow the tutorial on [Youtube](https://youtu.be/79B8AOKkpho?si=CjptOJ95OwKfFbwO)
+or [Medium](https://sejalv.medium.com/containerized-ml-deployment-with-aws-lambda-680540fb92f4)
+
 ## Technologies
 - Docker + ECR: Container & Registy
 - AWS Lambda: Serving API
