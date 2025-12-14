@@ -1,11 +1,11 @@
 # Serverless ML Workshop
 
-This workshop focusses on deployment of ML models with Serverless APIs (AWS Lambda) and Docker. We'll learn how to:
+This workshop will show how you can deploy a Machine Learning model on a Serverless API (AWS Lambda), using ECR with Docker as runtime. We'll learn how to:
 
 - Train and serialize a model inside a container
 - Package the service in an image
 - Serve the model with serverless API
-- Build, Test, and Deploy, with CI/CD workflow
+- Build, test, and deploy, with CI/CD workflow
 
 Follow the tutorial on [Youtube](https://youtu.be/79B8AOKkpho?si=CjptOJ95OwKfFbwO)
 or [Medium](https://sejalv.medium.com/containerized-ml-deployment-with-aws-lambda-680540fb92f4)
